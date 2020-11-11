@@ -2,18 +2,19 @@ import React, { useEffect, useState } from 'react';
 import app from '../../services/firebase';
 import Cards from '../cards';
 import 'firebase/database';
+import './style.css';
 
-const convertTanggal = (tanggal) => {
-  const tanggalLokal = new Date(tanggal).toLocaleString('id-ID', {
+const convertDate = (date) => {
+  const dateLocal = new Date(date).toLocaleString('id-ID', {
     dateStyle: 'full',
   });
-  return tanggalLokal;
+  return dateLocal;
 };
 
 const CoronaNews = () => {
   const [news, setNews] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-
+  const [visible, setVisible] = useState(6);
   useEffect(() => {
     setIsLoading(true);
     const db = app.database().ref('news');
@@ -25,17 +26,20 @@ const CoronaNews = () => {
   }, []);
 
   console.log(news);
+  const showMoreItems = () => {
+    setVisible((prevValue) => { return prevValue + 6; });
+  };
   return (
     <div>
       <h2>data corona</h2>
-      {isLoading ? <p>loading</p> : <p>data</p>}
-      {/* <p>{JSON.stringify(news)}</p> */}
-      <div>
-        {news.map((newsItem) => {
+      {isLoading ? <p>loading...</p> : <p>data</p>}
+
+      <div className="container">
+        {news.slice(0, visible).map((newsItem) => {
           return (
-            <div>
-              <h1 style={{ marginTop: '2em' }}>
-                {convertTanggal(newsItem.date)}
+            <div className="card">
+              <h1 style={{ marginTop: '1em', marginBottom: '1em' }}>
+                {convertDate(newsItem.date)}
               </h1>
               <div>
                 {newsItem.activity.map((activityItem) => {
@@ -52,6 +56,9 @@ const CoronaNews = () => {
             </div>
           );
         })}
+        <button type="button" OnClick={showMoreItems}>
+          LOAD MORE
+        </button>
       </div>
     </div>
   );
