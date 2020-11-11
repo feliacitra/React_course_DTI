@@ -27,7 +27,9 @@ const CoronaNews = () => {
 
   console.log(news);
   const showMoreItems = () => {
-    setVisible((prevValue) => { return prevValue + 6; });
+    setVisible((prevValue) => {
+      return prevValue + 6;
+    });
   };
   return (
     <div>
@@ -56,7 +58,7 @@ const CoronaNews = () => {
             </div>
           );
         })}
-        <button type="button" OnClick={showMoreItems}>
+        <button type="button" onClick={showMoreItems}>
           LOAD MORE
         </button>
       </div>
