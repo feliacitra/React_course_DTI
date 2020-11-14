@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import app from '../../services/firebase';
 import Cards from '../cards';
 import 'firebase/database';
@@ -40,6 +41,9 @@ const CoronaNews = () => {
         {news.slice(0, visible).map((newsItem) => {
           return (
             <div className="card">
+              <Link to={`/infoCorona/${newsItem.date}`}>
+                <h3>{newsItem.date}</h3>
+              </Link>
               <h1 style={{ marginTop: '1em', marginBottom: '1em' }}>
                 {convertDate(newsItem.date)}
               </h1>
