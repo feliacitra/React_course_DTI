@@ -1,0 +1,40 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.content {
+  display: grid;
+  justify-content: space-between;
+  background-color: rgb(165, 253, 156);
+}
+
+.discount {
+  max-width: 100px;
+  padding: 2px;
+  background: rgb(161, 214, 82);
+  color: white;
+}
+.product {
+  width: 100%;
+  max-width: 218px;
+  padding: 2px;
+  background: rgb(10, 12, 7);
+  color: white;
+  margin: 10px 0;
+}
+
+p {
+  font-size: 12px;
+  margin: 4px 0 15px 0;
+  text-align: justify;
+}
+
+h4 {
+  font-size: 12px;
+  text-align: justify;
+  color: red;
+  text-decoration: line-through;
+}
