@@ -7,22 +7,39 @@
 
 .content {
   display: grid;
-  justify-content: space-between;
-  background-color: rgb(165, 253, 156);
+  list-style-type: none;
+  margin: 0;
+  padding: 10px;
+  grid-template-columns: repeat(3, auto);
+  grid-template-rows: repeat(1, auto);
+  background-image: url('../../assets/images/bg.jpg');
+  background-size: cover;
 }
 
+.kotak {
+  width: 230px;
+  height: 230px;
+  width: 100%;
+  max-width: 318px;
+  padding: 20px 10px 10px;
+  background: rgb(155, 233, 147);
+  margin: 10px auto;
+  color: black;
+  border-radius: 10px;
+}
 .discount {
   max-width: 100px;
   padding: 2px;
   background: rgb(161, 214, 82);
+  width: 100px;
+  height: 25px;
   color: white;
 }
 .product {
   width: 100%;
   max-width: 218px;
   padding: 2px;
-  background: rgb(10, 12, 7);
-  color: white;
+  color: black;
   margin: 10px 0;
 }
 
@@ -33,8 +50,20 @@ p {
 }
 
 h4 {
+  padding-top: 5px;
   font-size: 12px;
   text-align: justify;
   color: red;
   text-decoration: line-through;
+}
+.tombol {
+  border: none;
+  outline: none;
+  width: 100%;
+  padding: 16px 0;
+  margin: 10px 0 0 0;
+  background: darkblue;
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
 }

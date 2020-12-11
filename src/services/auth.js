@@ -8,9 +8,9 @@ const login = (username, password) => {
 const getProduct = () => {
   return BaseService.get(API.PRODUCT, {
     params: {
-      limit: 10,
+      limit: 30,
       offset: 0,
-      search: 'mie',
+      search: 'minyak',
     },
   });
 };
