@@ -8,7 +8,7 @@ const login = (username, password) => {
 const getProduct = () => {
   return BaseService.get(API.PRODUCT, {
     params: {
-      limit: 30,
+      limit: 20,
       offset: 0,
       search: 'minyak',
     },
