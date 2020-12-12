@@ -8,9 +8,11 @@ const Product = () => {
   const [dataProduct, setDataProduct] = useState([]);
   const [visible, setVisible] = useState(3);
 
-  const getProduct = () => {
+  const [cari, setCari] = useState('');
+
+  const getProduct = (namaProduct) => {
     authService
-      .getProduct()
+      .getProduct(namaProduct)
       .then((res) => {
         // eslint-disable-next-line no-console
         console.log(res);
@@ -26,7 +28,7 @@ const Product = () => {
   };
 
   useEffect(() => {
-    getProduct();
+    getProduct('Minyak');
   }, []);
 
   const showMoreItems = () => {
@@ -37,6 +39,25 @@ const Product = () => {
   return (
     <div>
       {isLoading ? <p>loading...</p> : <h1>Data Product</h1>}
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          getProduct(cari);
+        }}
+      >
+        <label htmlFor="user">
+          Cari :
+          <input
+            className="form-content"
+            type="text"
+            value={cari}
+            onChange={(e) => {
+              setCari(e.target.value);
+            }}
+          />
+        </label>
+        <input type="submit" value="Cari" />
+      </form>
       <div className="content">
         {dataProduct.slice(0, visible).map((product) => {
           return (

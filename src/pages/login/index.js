@@ -14,6 +14,7 @@ const Login = () => {
     authService
       .login(username, password)
       .then((res) => {
+        // eslint-disable-next-line no-console
         console.log(res);
         const cookieToken = res.token;
         const cookieUser = {
@@ -25,7 +26,9 @@ const Login = () => {
         window.location.replace('/product');
       })
       .catch((err) => {
+        // eslint-disable-next-line no-alert
         alert(err.data.message);
+        // eslint-disable-next-line no-console
         console.log(err);
       })
       .finally(() => {
@@ -67,6 +70,7 @@ const Login = () => {
         </label>
         <input
           id="submit-btn"
+          // eslint-disable-next-line react/jsx-no-duplicate-props
           id="sign"
           type="submit"
           value="Login"
